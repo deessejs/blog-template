@@ -38,6 +38,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# Claude Code agent memory (per-developer state, not project source)
+.claude/agent-memory/
+
 # vercel
 .vercel
 
