@@ -14,12 +14,6 @@ export function AppFooter() {
 
         <nav className="flex items-center gap-4">
           <Link
-            href="/docs"
-            className="text-muted-foreground text-sm hover:text-foreground transition-colors"
-          >
-            Docs
-          </Link>
-          <Link
             href="/privacy"
             className="text-muted-foreground text-sm hover:text-foreground transition-colors"
           >
