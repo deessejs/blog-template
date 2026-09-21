@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-Decisions made 2026-07-07 during the mailer audit (full document at `temp/audit/mailer/mailer.md`):
+Decisions made 2026-07-07 during the mailer audit:
 
 | Decision | Choice |
 |---|---|
