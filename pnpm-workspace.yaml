@@ -1,5 +1,6 @@
 packages:
-  - "apps/*"
+  - "apps/web"
+  - "apps/app"
   - "packages/*"
 
 # pnpm 11: explicit allowlist for build scripts
@@ -87,12 +88,7 @@ catalog:
 # Strict mode: all dependencies MUST come from a catalog
 catalogMode: strict
 
-minimumReleaseAgeExclude:
-  # Kept out of the minimumReleaseAge check: these are transitively used by
-  # `apps/docs` via `fumadocs-mdx`, so excluding them avoids upgrade friction
-  # on docs builds. See `temp/audit/tech-lead-deletion/README.md` §6.
-  - rolldown
-  - "@rolldown/*"
+minimumReleaseAgeExclude: []
 
 # Force single version of @types/react across the tree to avoid duplicate-type errors
 overrides:
