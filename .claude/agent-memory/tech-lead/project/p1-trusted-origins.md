@@ -18,6 +18,6 @@ trustedOrigins: [
 ],
 ```
 
-`docs/guides/better-auth/pitfalls.md` §5 was written before the fix; the doc text still reads as if the leak is live. The fix is in code; this entry stays as a historical note.
+The fix is in code; this entry stays as a historical note.
 
-Related: [[packages-auth]], [[single-tenant]], [[feedback-verify-high-severity-findings]].
+Related: [[packages-auth]], [[feedback-verify-high-severity-findings]].
