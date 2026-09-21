@@ -107,7 +107,7 @@ export function SearchDialog() {
           <Input
             ref={inputRef}
             type="text"
-            placeholder="Search articles and releases..."
+            placeholder="Search articles..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -171,7 +171,7 @@ export function SearchDialog() {
 
         {!query.trim() && (
           <div className="px-4 py-6 text-center text-sm text-muted-foreground">
-            Start typing to search posts and releases
+            Start typing to search posts
           </div>
         )}
       </div>
