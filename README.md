@@ -42,7 +42,7 @@
 
 | Layer | What you get | Why it matters |
 |---|---|---|
-| **Apps** | `apps/web` (marketing), `apps/app` (authenticated product), `apps/docs` (Fumadocs) | Three deployable surfaces, each with its own purpose. |
+| **Apps** | `apps/web` (marketing & blog), `apps/app` (authenticated product) | Two deployable surfaces, each with its own purpose. |
 | **Auth** | `packages/auth` ( Better Auth + Drizzle adapter, email verification, password reset | Real auth, not a demo. Production gating in `apps/app/proxy.ts`. |
 | **API** | `packages/api` ( Hono + oRPC, end-to-end typed routes | Type-safe RPC without GraphQL. |
 | **Database** | `packages/database` ( Drizzle ORM, Postgres, in-memory test runner (pg-mem) | Single source of truth for schema; tests run without a DB. |
@@ -56,7 +56,7 @@
 - **Lockfile-clean pnpm catalogs.** All shared versions live in `pnpm-workspace.yaml` with `catalogMode: strict`. No drift between apps.
 - **Real auth flow.** Email verification is enforced in the proxy. No "demo" auth.
 - **Real database.** Postgres locally (Docker) or in the cloud. Schema is generated, not hand-written.
-- **Three apps, one repo.** Marketing, product, docs. Each deployable independently to Vercel.
+- **Two apps, one repo.** Marketing and product. Each deployable independently to Vercel.
 
 ## Quick start
 
@@ -130,9 +130,8 @@ Copy `.env.example` to `.env.local` to start; defaults work for local Docker Pos
 ```
 .
 ├── apps/
-│   ├── web/        # Next.js 16 (marketing site) (public, no auth)
-│   ├── app/        # Next.js 16 (authenticated product) (proxy.ts guard)
-│   └── docs/       # Next.js 16 (Fumadocs site)
+│   ├── web/        # Next.js 16 (marketing site & blog) (public, no auth)
+│   └── app/        # Next.js 16 (authenticated product) (proxy.ts guard)
 ├── packages/
 │   ├── auth/       # Better Auth setup (single source of truth)
 │   ├── database/   # Drizzle ORM + schema (CLI-generated for auth tables)
@@ -153,7 +152,7 @@ Copy `.env.example` to `.env.local` to start; defaults work for local Docker Pos
 
 ### One-click
 
-Click the **Deploy with Vercel** button at the top. The monorepo is detected automatically; you will need to create three Vercel projects (one per app) and configure env vars per project.
+Click the **Deploy with Vercel** button at the top. The monorepo is detected automatically; you will need to create two Vercel projects (one per app) and configure env vars per project.
 
 ### Per-app mapping
 
@@ -161,7 +160,6 @@ Click the **Deploy with Vercel** button at the top. The monorepo is detected aut
 |---|---|
 | `apps/web` | `https://yourdomain.com` |
 | `apps/app` | `https://app.yourdomain.com` |
-| `apps/docs` | `https://docs.yourdomain.com` |
 
 ## Customization
 

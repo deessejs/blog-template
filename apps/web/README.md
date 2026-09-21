@@ -122,12 +122,11 @@ Release content with Keep-a-Changelog format.
 
 ## Relationship to other apps
 
-This app is one of three in the monorepo, each deployed independently:
+This app is one of two in the monorepo, each deployed independently:
 
 - **`apps/web`** (this app) — public, anonymous. Marketing, blog, changelog, legal pages.
 - **`apps/app`** — authenticated app. `/login`, `/signup`, dashboard, settings. Has its own `(protected)` / `(unprotected)` route groups for auth.
-- **`apps/docs`** — Fumadocs-based documentation site, served at `/docs`.
 
-Links to `/login`, `/signup` in the header point to `apps/app`. Links to `/docs` point to `apps/docs`. Both are intentional cross-app navigation, not broken links.
+Links to `/login`, `/signup` in the header point to `apps/app`. No other cross-app navigation.
 
-All three share `@workspace/ui` for components and styling, and `@workspace/ui/lib/config` for `APP_CONFIG`.
+Both apps share `@workspace/ui` for components and styling, and `@workspace/ui/lib/config` for `APP_CONFIG`.

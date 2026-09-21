@@ -52,7 +52,6 @@ body:
         - area:ui
         - area:web
         - area:app
-        - area:docs
         - area:database
         - area:email
         - area:ci
