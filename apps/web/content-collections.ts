@@ -98,57 +98,6 @@ const posts = defineCollection({
   },
 })
 
-const releases = defineCollection({
-  name: "releases",
-  directory: "content/releases",
-  include: "*.mdx",
-  schema: z.object({
-    title: z.string().min(1).max(120),
-    description: z.string().min(1).max(280),
-    version: z.string().regex(/^\d+\.\d+\.\d+$/, "semver"),
-    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    categories: z
-      .array(
-        z.enum([
-          "added",
-          "changed",
-          "fixed",
-          "removed",
-          "deprecated",
-          "security",
-        ]),
-      )
-      .default([]),
-    cover: z.string().optional(),
-    relatedPosts: z.array(z.string()).default([]),
-    content: z.string(),
-  }),
-  transform: async (release, context) => {
-    const slug = release._meta.filePath
-      .replace(/^.*\//, "")
-      .replace(/\.mdx$/, "")
-
-    const mdxCode = await compileMDX(context, release, {
-      rehypePlugins: [
-        [
-          rehypeShiki,
-          {
-            themes: { light: "github-light", dark: "github-dark" },
-            defaultColor: false,
-          },
-        ],
-      ],
-    })
-
-    return {
-      ...release,
-      slug,
-      url: `/changelog/${slug}`,
-      mdxCode,
-    }
-  },
-})
-
 export default defineConfig({
-  content: [authors, posts, releases],
+  content: [authors, posts],
 })

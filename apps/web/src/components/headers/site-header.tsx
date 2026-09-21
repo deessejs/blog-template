@@ -8,7 +8,6 @@ import { APP_NAME } from "@workspace/ui/lib/config"
 
 const NAV_LINKS = [
   { href: "/blog", label: "Blog" },
-  { href: "/changelog", label: "Changelog" },
 ]
 
 function NavLink({ href, label }: { href: string; label: string }) {
