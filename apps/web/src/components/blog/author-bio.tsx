@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { Avatar, AvatarFallback } from "@workspace/ui/components/avatar"
 import { AvatarNextImage } from "./avatar-image"
 import type { Author } from "@/lib/blog/types"
@@ -12,27 +11,20 @@ function SingleAuthorBlock({ author }: { author: Author }) {
     .join("")
     .toUpperCase()
 
-  const authorUrl = `/blog/author/${encodeURIComponent(author.handle)}`
-
   return (
     <div className="flex items-start gap-4">
-      <Link href={authorUrl} aria-label={`More from ${author.name}`} className="shrink-0">
-        <Avatar className="size-12 overflow-hidden rounded-full">
-          {author.avatar ? (
-            <AvatarNextImage src={author.avatar} alt={author.name} />
-          ) : null}
-          <AvatarFallback className="text-sm font-semibold">
-            {fallback || author.name[0]}
-          </AvatarFallback>
-        </Avatar>
-      </Link>
+      <Avatar className="size-12 shrink-0 overflow-hidden rounded-full">
+        {author.avatar ? (
+          <AvatarNextImage src={author.avatar} alt={author.name} />
+        ) : null}
+        <AvatarFallback className="text-sm font-semibold">
+          {fallback || author.name[0]}
+        </AvatarFallback>
+      </Avatar>
       <div className="min-w-0 flex-1">
-        <Link
-          href={authorUrl}
-          className="inline-block text-base font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80"
-        >
+        <span className="inline-block text-base font-semibold tracking-tight text-foreground">
           {author.name}
-        </Link>
+        </span>
         {author.bio ? (
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {author.bio}

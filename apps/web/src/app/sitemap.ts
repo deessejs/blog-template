@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { APP_URL } from "@workspace/ui/lib/config"
-import { allPosts, allAuthors } from "content-collections"
+import { allPosts } from "content-collections"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -55,13 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: post.tags.length > 0 ? 0.7 : 0.6,
   }))
 
-  const authorPages: MetadataRoute.Sitemap = allAuthors.map((author) => ({
-    url: `${APP_URL}/blog/author/${encodeURIComponent(author.handle)}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.4,
-  }))
-
   // Collect all unique tags from posts
   const tagPages: MetadataRoute.Sitemap = Array.from(
     new Set(allPosts.flatMap((p) => p.tags))
@@ -75,7 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...blogPosts,
-    ...authorPages,
     ...tagPages,
   ]
 }

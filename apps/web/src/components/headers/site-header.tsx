@@ -5,6 +5,7 @@ import { Menu } from "lucide-react"
 import { Button } from "@workspace/ui/components/button"
 import { Sheet, SheetContent, SheetTrigger } from "@workspace/ui/components/sheet"
 import { APP_NAME } from "@workspace/ui/lib/config"
+import { SearchDialog } from "@/components/blog/search-dialog"
 
 const NAV_LINKS = [
   { href: "/blog", label: "Blog" },
@@ -45,6 +46,9 @@ function MobileNav() {
             {APP_NAME}
           </Link>
         </div>
+        <div className="-mx-2">
+          <SearchDialog />
+        </div>
         <nav className="flex flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <Link
@@ -56,14 +60,6 @@ function MobileNav() {
             </Link>
           ))}
         </nav>
-        <div className="mt-auto flex flex-col gap-2">
-          <Button variant="outline" asChild className="w-full">
-            <Link href="/login">Login</Link>
-          </Button>
-          <Button asChild className="w-full">
-            <Link href="/signup">Sign up</Link>
-          </Button>
-        </div>
       </SheetContent>
     </Sheet>
   )
@@ -72,7 +68,7 @@ function MobileNav() {
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-14 items-center justify-between px-4">
+      <div className="mx-auto flex h-14 items-center justify-between gap-4 px-4">
         <div className="flex items-center gap-4">
           <MobileNav />
           <Link href="/" className="font-semibold text-lg">
@@ -80,14 +76,8 @@ export function SiteHeader() {
           </Link>
           <DesktopNav />
         </div>
-
-        <div className="hidden items-center gap-2 sm:flex">
-          <Button variant="outline" asChild>
-            <Link href="/login">Login</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/signup">Sign up</Link>
-          </Button>
+        <div className="flex items-center">
+          <SearchDialog />
         </div>
       </div>
     </header>

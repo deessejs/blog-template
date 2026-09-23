@@ -2,7 +2,7 @@ import type { NextConfig } from "next"
 import { withContentCollections } from "@content-collections/next"
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@workspace/ui"],
+  transpilePackages: ["@workspace/ui", "@workspace/env", "@workspace/cookies"],
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   serverExternalPackages: ["shiki"],
   images: {

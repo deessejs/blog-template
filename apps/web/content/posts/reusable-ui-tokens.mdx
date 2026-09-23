@@ -1,0 +1,25 @@
+---
+title: Reusable UI Tokens, Not Reusable UI
+description: Why centralizing design tokens beats centralizing components — and what that changes about how you ship features.
+date: 2026-09-02
+tags: [design, engineering]
+author: admin
+---
+
+# Tokens over Components
+
+The cheapest way to keep a UI consistent across two apps is to share **tokens**, not **components**.
+
+## What we share
+
+- Color palette (`text-primary`, `bg-muted`, `border-border`)
+- Typography scale (the `tracking-tighter`, `text-balance` patterns)
+- Spacing rhythm (`py-16 sm:py-24 lg:py-32`)
+
+## What we don't
+
+Components live with the app that uses them. A landing page CTA rarely belongs in the admin app's settings.
+
+## Why this scales
+
+When two apps reuse the same tokens, they look like one product without forcing them into a single component tree.
