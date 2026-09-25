@@ -1,5 +1,5 @@
-import { loadRepoEnv } from "./loader.js"
-import { serverSchema, type ServerEnv } from "./schema.js"
+import { loadRepoEnv } from "./loader"
+import { serverSchema, type ServerEnv } from "./schema"
 
 /**
  * Load .env files into process.env. Idempotent.

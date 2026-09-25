@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { APP_URL } from "@workspace/ui/lib/config"
-import { allPosts, allReleases, allAuthors } from "content-collections"
+import { allPosts } from "content-collections"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -15,12 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
-    },
-    {
-      url: `${APP_URL}/changelog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
     {
       url: `${APP_URL}/privacy`,
@@ -61,20 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: post.tags.length > 0 ? 0.7 : 0.6,
   }))
 
-  const changelogEntries: MetadataRoute.Sitemap = allReleases.map((release) => ({
-    url: `${APP_URL}${release.url}`,
-    lastModified: release.date,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }))
-
-  const authorPages: MetadataRoute.Sitemap = allAuthors.map((author) => ({
-    url: `${APP_URL}/blog/author/${encodeURIComponent(author.handle)}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.4,
-  }))
-
   // Collect all unique tags from posts
   const tagPages: MetadataRoute.Sitemap = Array.from(
     new Set(allPosts.flatMap((p) => p.tags))
@@ -88,8 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...blogPosts,
-    ...changelogEntries,
-    ...authorPages,
     ...tagPages,
   ]
 }

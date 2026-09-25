@@ -45,7 +45,6 @@ Labels are **repo-level** (set via `--label` in `gh issue create`). Do NOT creat
 - `area:ui` — UI components, design system (packages/ui)
 - `area:web` — Public marketing site (apps/web)
 - `area:app` — Authenticated app (apps/app)
-- `area:docs` — Documentation site (apps/docs)
 - `area:database` — Database schema, Drizzle ORM
 - `area:email` — Email handling, Resend, react-email
 - `area:ci` — GitHub Actions, CI/CD workflows

@@ -87,7 +87,7 @@ export function SearchDialog() {
         className="flex items-center gap-2 border border-border/40 bg-muted/30 px-3 py-1.5 text-muted-foreground hover:bg-muted/50"
       >
         <Search className="size-4" />
-        <span className="hidden sm:inline">Search...</span>
+        <span className="hidden sm:inline">Search content...</span>
         <kbd className="hidden sm:inline text-[10px] font-mono text-muted-foreground/60">
           ⌘K
         </kbd>
@@ -107,7 +107,7 @@ export function SearchDialog() {
           <Input
             ref={inputRef}
             type="text"
-            placeholder="Search articles and releases..."
+            placeholder="Search articles..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -171,7 +171,7 @@ export function SearchDialog() {
 
         {!query.trim() && (
           <div className="px-4 py-6 text-center text-sm text-muted-foreground">
-            Start typing to search posts and releases
+            Start typing to search posts
           </div>
         )}
       </div>

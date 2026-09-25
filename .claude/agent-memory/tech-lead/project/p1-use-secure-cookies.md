@@ -17,6 +17,6 @@ advanced: {
 
 Production HTTPS still gets `Secure`; local HTTP no longer does.
 
-`docs/guides/better-auth/pitfalls.md` §4 and `session.md` cookies section were written before the fix and may still show the pre-fix state. The fix is in code; this entry stays as a historical note.
+The fix is in code; this entry stays as a historical note.
 
-Related: [[packages-auth]], [[single-tenant]], [[feedback-verify-high-severity-findings]].
+Related: [[packages-auth]], [[feedback-verify-high-severity-findings]].
