@@ -1,0 +1,27 @@
+---
+title: Shipping Staging-First Changed How We Review Code
+description: Notes from running a staging integration branch in front of main for a quarter — what worked, what didn't, what we'd change.
+date: 2026-08-19
+tags: [engineering, process]
+author: admin
+---
+
+# Shipping Staging-First
+
+We switched to a staging-first workflow a few months ago. The basic shape:
+
+- `feature/*` branches open pull requests against `staging`
+- CI runs on every push to `staging`
+- A human promotes `staging` to `main` after each integration cycle
+
+## What changed
+
+Reviewers started looking at the *interaction* between PRs, not just the diff at hand. Bugs that only manifested when two features landed back-to-back got caught before they reached `main`.
+
+## What didn't
+
+The promotion step still needs a human. We haven't found a way to safely automate it.
+
+## What we'd tweak
+
+Make the staging workflow louder in onboarding docs.

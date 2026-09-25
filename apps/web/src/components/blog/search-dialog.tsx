@@ -87,7 +87,7 @@ export function SearchDialog() {
         className="flex items-center gap-2 border border-border/40 bg-muted/30 px-3 py-1.5 text-muted-foreground hover:bg-muted/50"
       >
         <Search className="size-4" />
-        <span className="hidden sm:inline">Search...</span>
+        <span className="hidden sm:inline">Search content...</span>
         <kbd className="hidden sm:inline text-[10px] font-mono text-muted-foreground/60">
           ⌘K
         </kbd>

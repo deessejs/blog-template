@@ -1,0 +1,30 @@
+---
+title: Building a Blog with Content Collections
+description: How content-collections turns a folder of MDX files into typed data — and why that's a nicer DX than stringly-typed frontmatter.
+date: 2026-08-26
+tags: [engineering, template, content-collections]
+author: admin
+---
+
+# Content Collections
+
+`content-collections` reads every `.mdx` file in a directory, validates the frontmatter against a Zod schema, and exposes the result as typed imports.
+
+## What you write
+
+```mdx
+---
+title: My Post
+date: 2026-08-26
+tags: [engineering]
+author: admin
+---
+```
+
+## What you get
+
+A fully-typed `Post` object: `post.title`, `post.date`, `post.tags`, plus the compiled `mdxCode`. IDE autocomplete included.
+
+## Why it beats stringly-typed frontmatter
+
+No more `post.frontmatter.title` chains or runtime crashes when a field is missing.

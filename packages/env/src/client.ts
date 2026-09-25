@@ -1,4 +1,4 @@
-import { clientSchema, type ClientEnv } from "./schema.js"
+import { clientSchema, type ClientEnv } from "./schema"
 
 /**
  * Client-safe env. Only NEXT_PUBLIC_* values are referenced, so the bundler
